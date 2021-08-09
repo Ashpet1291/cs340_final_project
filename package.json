@@ -1,0 +1,24 @@
+{
+  "name": "cs340_final_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashpet1291/cs340_final_project.git"
+  },
+  "author": "Ashley Pettibone and Michael Uchmanowicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashpet1291/cs340_final_project/issues"
+  },
+  "homepage": "https://github.com/Ashpet1291/cs340_final_project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^4.0.1",
+    "mysql": "^2.18.1"
+  }
+}

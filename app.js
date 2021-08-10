@@ -24,13 +24,42 @@
 */
 
     // GET ROUTES
-    app.get('/', function(req, res)
+    app.get('/', function(req,res)
         {
-            let query1 = `SELECT * FROM Family_Members;`;   // Define our query
+            res.render('index');
+        });
+
+    app.get('/familyMembers', function(req, res)
+        {
+            let query1 = "SELECT * FROM Family_Members;";   // Define our query
             db.pool.query(query1, function(error, rows, fields){
                 res.render('familyMembers', {data: rows});
             })
          });
+
+    app.get('/announcements', function(req, res)
+        {
+            let query1 = "SELECT * FROM Announcements;";
+            db.pool.query(query1, function(error, rows, fields){
+                res.render('announcements', {data: rows});
+            })
+        });
+
+    app.get('/places', function(req, res)
+        {
+            let query1 = "SELECT * FROM Places;";
+            db.pool.query(query1, function(error, rows, fields){
+                res.render('places', {data: rows});
+            })
+        });
+    app.get('/items', function(req, res)
+        {
+            let query2 = "SELECT * FROM Items;";
+            db.pool.query(query2, function(error, rows, fields){
+                res.render('items', {data: rows});
+            })
+        });
+
 
     // POST ROUTES
     app.post('/add-familyMember-form', function(req, res){
@@ -60,13 +89,36 @@
             // presents it on the screen
             else
             {
-                res.redirect('/');
+                res.redirect('/familyMembers');
             }
         })
     })
 
     app.delete('/', function (req, res) {
           res.send('Got a DELETE request at /user')
+    })
+
+
+    // route for announcements
+    app.post('/add-announcement-form', function(req, res){
+        // Capture the incoming data and parse it back to a JS object
+        let data = req.body;
+
+        // Create the query and run it on the database
+         query1 = `INSERT INTO Announcements (active, title, note, start_date, end_date, announcement_owner) VALUES ('${data['input-active']}', '${data['input-title']}', '${data['input-note']}', '${data['input-startDate']}', '${data['input-endDate']}', '${data['input-aowner']}')`;
+         db.pool.query(query1, function(error, rows, fields){
+
+             // Check to see if there was an error
+             if (error) {
+                 console.log(error)
+                 res.sendStatus(400);
+             }
+
+             else
+             {
+                 res.redirect('/announcements');
+             }
+         })
     })
 
 /*

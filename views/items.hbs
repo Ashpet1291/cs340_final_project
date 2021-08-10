@@ -1,0 +1,34 @@
+<h1>The server is running!</h1>
+<p>If you see this text, the server is <strong>definitely</strong> working!</p>
+
+{{!-- Create a table --}}
+<table>
+
+    {{!-- Header section --}}
+    <thead>
+
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{#each data}}
+        <tr>
+            <td>{{this.item_id}}</td>
+            <td>{{this.active}}</td>
+            <td>{{this.item_name}}</td>
+            <td>{{this.item_amount}}</td>
+            <td>{{this.suggested_store}}</td>
+            <td>{{this.note}}</td>
+            <td>{{this.item_owner}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

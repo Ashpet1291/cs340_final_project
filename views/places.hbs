@@ -30,3 +30,26 @@
          {{/each}}
       </tbody>
 </table>
+
+<p>To add a new place to remember, please enter the information below and click `Submit`!</p>
+<form id="add-place-form" method="POST" action="/add-place-form">
+    <label for="input-active">Active: </label>
+    <input type="number" name="input-active" id="input-active">
+
+    <label for="input-name">Place Name: </label>
+    <input type="text" name="input-name" id="input-name">
+
+    <label for="input-address">Address: </label>
+    <input type="number" name="input-address" id="input-address">
+
+    <label for="input-website">Website: </label>
+    <input type="text" name="input-website" id="input-website">
+
+    <label for="input-indoor">Indoor: </label>
+    <input type="number" name="input-indoor" id="input-indoor">
+
+    <label for="input-note">Note: </label>
+    <input type="text" name="input-note" id="input-note">
+
+    <input type="submit">
+</form>

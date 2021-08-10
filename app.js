@@ -121,6 +121,52 @@
          })
     })
 
+    app.post('/add-item-form', function(req, res){
+        let data = req.body;
+
+        query2 = `INSERT INTO Items  (active, item_name, item_amount, suggested_store, note, item_owner) VALUES ('${data['input-active']}', '${data['input-itemName']}', '${data['input-itemAmount']}', '${data['input-suggStore']}', '${data['input-note']}', '${data['input-itemOwner']}')`;
+        db.pool.query(query2, function(error, rows, fields){
+
+            if(error) {
+
+                console.log(error)
+                res.sendStatus(400);
+            }
+
+            else {
+                res.direct('/items');
+            }
+        })
+    })
+
+
+    app.post('/add-place-form', function(req, res){
+        let data = req.body;
+
+        let website = parseInt(data['input-website']);
+        if (isNaN(website))
+            {
+                website = 'NULL'
+            }
+
+        query2 = `INSERT INTO Places (active, name, address, website, indoor, note) VALUES ('${data['input-active']}', '${data['input-name']}', '${data['input-address']}', ${website}, '${data['input-indoor']}', '${data['input-note']}')`;
+        db.pool.query(query2, function(error, rows, fields){
+
+        if (error) {
+
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        else
+        {
+            res.redirect('/places');
+        }
+    })
+    })
+
+
+
 /*
     LISTENER
 */

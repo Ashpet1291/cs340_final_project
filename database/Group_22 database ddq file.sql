@@ -135,9 +135,9 @@ CREATE TABLE `Items` (
 --
 
 INSERT INTO `Items` (`item_id`, `active`, `item_name`, `item_amount`, `suggested_store`, `note`, `item_owner`) VALUES
-(1, 1, 'pickles', 1, '', 'need for sandwiches', 2),
-(2, 1, 'lightbulbs', 2, '', '75 watt-garage light is out', 1),
-(3, 1, 'outside table', 1, '', 'would take new or used if in good condition', 5),
+(1, 1, 'pickles', 1, 'Safeway', 'need for sandwiches', 2),
+(2, 1, 'lightbulbs', 2, 'Winco', '75 watt-garage light is out', 1),
+(3, 1, 'outside table', 1, 'Winco', 'would take new or used if in good condition', 5),
 (4, 1, 'lemons', 6, 'Roth\'s', 'want to make lemonaide later- roths has freshest fruit', 6),
 (5, 1, 'coolers', 2, '', 'need for camping-big or small', 4);
 
@@ -164,8 +164,8 @@ CREATE TABLE `Places` (
 INSERT INTO `Places` (`place_id`, `active`, `name`, `address`, `website`, `indoor`, `note`) VALUES
 (1, 1, 'Pike Place Market', 1, 'http://pikeplacemarket.org/', 0, 'was very fun we liked the flowers from the fourth booth and loved the pie we got and the honey'),
 (2, 1, 'Disneyland', 2, 'https://disneyland.disney.go.com/', 0, 'really enjoyed the rides in tommorowland and the food at flo\'s cafe'),
-(3, 1, 'Venice Canals', 3, '', 0, 'expensive but definitely worth the price- we had a blast'),
-(4, 1, 'Arcade', 4, '', 1, 'this arcade was cheap and everyone had a blast- has bowling-minigolf and many games'),
+(3, 1, 'Venice Canals', 3, NULL, 0, 'expensive but definitely worth the price- we had a blast'),
+(4, 1, 'Arcade', 4, NULL, 1, 'this arcade was cheap and everyone had a blast- has bowling-minigolf and many games'),
 (5, 1, 'beach', 5, 'https://www.seasideor.com/', 0, 'love this beach-want to come back and rent a beach house for the weekend');
 
 --

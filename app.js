@@ -3,7 +3,7 @@
 /*
     SETUP
 */
-    var express = require('express');
+    var express = require('express'); 
     var app = express();
     app.use(express.json())
     app.use(express.urlencoded({extended: true}))
@@ -18,7 +18,7 @@
             extname: ".hbs"
     }));
     app.set('view engine', '.hbs');
-
+    app.use(express.static(__dirname +'/public'));
 /*
     ROUTES
 */
@@ -53,8 +53,7 @@
             })
         });
     app.get('/items', function(req, res)
-        {
-            let query2 = "SELECT * FROM Items;";
+        {            let query2 = "SELECT * FROM Items;";
             db.pool.query(query2, function(error, rows, fields){
                 res.render('items', {data: rows});
             })

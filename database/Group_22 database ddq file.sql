@@ -52,24 +52,25 @@ INSERT INTO `Addresses` (`address_id`, `city`, `state_province`, `country`) VALU
 --
 
 CREATE TABLE `Announcements` (
-  `announcements_id` int(11) NOT NULL,
+  `announcements_id` int(10) AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `title` varchar(70) NOT NULL,
   `note` text NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `announcement_owner` int(10) NOT NULL
+  PRIMARY KEY (`announcements_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Announcements`
 --
 
-INSERT INTO `Announcements` (`announcements_id`, `active`, `title`, `note`, `start_date`, `end_date`, `announcement_owner`) VALUES
-(1, 1, 'Chris\'s birthday party', 'Chris\'s birthday party is this weekend- just bring yourselves we will have food games and cake', '2021-05-21', '0000-00-00', 5),
-(2, 1, 'Summer camping trip', 'this year we reserved 5 spaces at Florence campground-if you want to come let me know', '2021-05-21', '0000-00-00', 6),
-(3, 0, 'County Fair', 'the fair is the weekend of the 18th if anyone is interested in going', '2021-05-21', '0000-00-00', 2),
-(4, 1, 'Going Grocery Shopping', 'I\'m going grocery shopping tonight if anyone needs anything last chance to add to the list', '2021-05-21', '0000-00-00', 5);
+INSERT INTO `Announcements` (`active`, `title`, `note`, `start_date`, `end_date`, `announcement_owner`) VALUES
+(1, 'Chris\'s birthday party', 'Chris\'s birthday party is this weekend- just bring yourselves we will have food games and cake', '2021-05-21', '0000-00-00', 5),
+(1, 'Summer camping trip', 'this year we reserved 5 spaces at Florence campground-if you want to come let me know', '2021-05-21', '0000-00-00', 6),
+(0, 'County Fair', 'the fair is the weekend of the 18th if anyone is interested in going', '2021-05-21', '0000-00-00', 2),
+(1, 'Going Grocery Shopping', 'I\'m going grocery shopping tonight if anyone needs anything last chance to add to the list', '2021-05-21', '0000-00-00', 5);
 
 -- --------------------------------------------------------
 

@@ -145,7 +145,7 @@
             }
 
             else {
-                res.direct('/items');
+                res.redirect('/items');
             }
         })
     })

@@ -160,7 +160,7 @@
                 website = 'NULL'
             }
 
-        query2 = `INSERT INTO Places (active, name, address, website, indoor, note) VALUES ('${data['input-active']}', '${data['input-name']}', '${data['input-address']}', ${website}, '${data['input-indoor']}', '${data['input-note']}')`;
+        query2 = `INSERT INTO Places (active, name, website, indoor, note) VALUES ('${data['input-active']}', '${data['input-name']}', ${data['input-website']}, '${data['input-indoor']}', '${data['input-note']}')`;
         db.pool.query(query2, function(error, rows, fields){
 
         if (error) {

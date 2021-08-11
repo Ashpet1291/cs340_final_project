@@ -24,30 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Addresses`
---
-
-CREATE TABLE `Addresses` (
-  `address_id` int(10) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `state_province` varchar(50) NOT NULL,
-  `country` varchar(280) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `Addresses`
---
-
-INSERT INTO `Addresses` (`address_id`, `city`, `state_province`, `country`) VALUES
-(1, 'Seattle', 'Washington', 'USA'),
-(2, 'Anaheim', 'California', 'USA'),
-(3, 'Venice', 'Veneto', 'Italy'),
-(4, 'Miami', 'Florida', 'USA'),
-(5, 'Seaside', 'Oregon', 'USA');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Announcements`
 --
 
@@ -96,13 +72,13 @@ CREATE TABLE `Family_Members` (
 LOCK TABLES `Family_Members` WRITE;
 
 INSERT INTO `Family_Members` VALUES
-(0, 1, 'Oliver', 'Turbo', 'Tree', '1993-1-1', '123-123-1234')
-(1, 1, 'Johnathon', 'John', 'Wick', '1980-05-21', '303-210-4019'),
-(2, 1, 'Sarah', NULL, 'Wick', '1983-05-21', '503-210-4019'),
-(3, 1, 'Steven', 'Stevie', 'Wick', '2001-12-05', '303-210-4019'),
-(4, 1, 'Christopher', 'Chris', 'George', '1979-05-21', '303-210-4019'),
-(5, 0, 'Regina', 'gina', 'George', '1982-05-21', '303-210-4019'),
-(6, 1, 'Olivia', 'liv', 'George', '2003-05-21', '303-210-4019');
+(1, 'Oliver', 'Turbo', 'Tree', '1993-1-1', '123-123-1234')
+(1, 'Johnathon', 'John', 'Wick', '1980-05-21', '303-210-4019'),
+(1, 'Sarah', NULL, 'Wick', '1983-05-21', '503-210-4019'),
+(1, 'Steven', 'Stevie', 'Wick', '2001-12-05', '303-210-4019'),
+(1, 'Christopher', 'Chris', 'George', '1979-05-21', '303-210-4019'),
+(0, 'Regina', 'gina', 'George', '1982-05-21', '303-210-4019'),
+(1, 'Olivia', 'liv', 'George', '2003-05-21', '303-210-4019');
 
 UNLOCK TABLES;
 -- --------------------------------------------------------
@@ -154,7 +130,6 @@ CREATE TABLE `Places` (
   `place_id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `name` varchar(70) NOT NULL,
-  `address` int(11) NOT NULL,
   `website` text DEFAULT NULL,
   `indoor` tinyint(1) NOT NULL,
   `note` text NOT NULL
@@ -172,53 +147,6 @@ INSERT INTO `Places` (`place_id`, `active`, `name`, `address`, `website`, `indoo
 (1, 'Arcade', 4, NULL, 1, 'this arcade was cheap and everyone had a blast- has bowling-minigolf and many games'),
 (1, 'beach', 5, 'https://www.seasideor.com/', 0, 'love this beach-want to come back and rent a beach house for the weekend');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Addresses`
---
-ALTER TABLE `Addresses`
-  ADD PRIMARY KEY (`address_id`);
-
---
--- Indexes for table `Announcements`
---
-ALTER TABLE `Announcements`
-  ADD PRIMARY KEY (`announcements_id`),
-  ADD KEY `announcement_owner` (`announcement_owner`);
-
---
--- Indexes for table `Family_Members`
---
-ALTER TABLE `Family_Members`
-  ADD UNIQUE KEY `family_id` (`family_id`);
-
---
--- Indexes for table `Family_Members_Announcements`
---
-ALTER TABLE `Family_Members_Announcements`
-  ADD KEY `announcements` (`announcements`),
-  ADD KEY `family_members` (`family_members`);
-
---
--- Indexes for table `Items`
---
-ALTER TABLE `Items`
-  ADD UNIQUE KEY `lists_id` (`item_id`),
-  ADD KEY `item_owner` (`item_owner`);
-
---
--- Indexes for table `Places`
---
-ALTER TABLE `Places`
-  ADD PRIMARY KEY (`place_id`),
-  ADD KEY `address` (`address`);
-
---
--- Constraints for dumped tables
---
 
 --
 -- Constraints for table `Announcements`
@@ -239,12 +167,7 @@ ALTER TABLE `Family_Members_Announcements`
 ALTER TABLE `Items`
   ADD CONSTRAINT `Items_ibfk_2` FOREIGN KEY (`item_owner`) REFERENCES `Family_Members` (`family_id`);
 
---
--- Constraints for table `Places`
---
-ALTER TABLE `Places`
-  ADD CONSTRAINT `Places_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Addresses` (`address_id`);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

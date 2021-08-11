@@ -1,63 +1,118 @@
 <div class="container">
-<h1 class="display-1">The server is running!</h1>
+<h1 class="display-1">Shopping Item's</h1>
 </div>
+<div class="container">
 
+    <table class="table">
 
-
-<p>If you see this text, the server is <strong>definitely</strong> working!</p>
-
-{{!-- Create a table --}}
-<table class="table">
-
-    {{!-- Header section --}}
-    <thead>
+        {{!-- Header section --}}
+        <thead>
 
         <tr>
             {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
+                <th>
+                    {{@key}}
+                </th>
             {{/each}}
         </tr>
-    </thead>
+        </thead>
 
-    {{!-- Body section --}}
-    <tbody>
+        {{!-- Body section --}}
+        <tbody>
 
         {{#each data}}
-        <tr>
-            <td>{{this.item_id}}</td>
-            <td>{{this.active}}</td>
-            <td>{{this.item_name}}</td>
-            <td>{{this.item_amount}}</td>
-            <td>{{this.suggested_store}}</td>
-            <td>{{this.note}}</td>
-            <td>{{this.item_owner}}
-        </tr>
+            <tr>
+                <td>{{this.item_id}}</td>
+                <td>{{this.active}}</td>
+                <td>{{this.item_name}}</td>
+                <td>{{this.item_amount}}</td>
+                <td>{{this.suggested_store}}</td>
+                <td>{{this.note}}</td>
+                <td>{{this.item_owner}}
+            </tr>
         {{/each}}
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
-<h2>Adding Data using an HTML form</h2>
-<p>To add a new person, please enter their information below nad click `Submit`!</p>
-<form id="add-item-form" method="POST" action="/add-item-form">
-    <label for="input-active">Active: </label>
-    <input type="number" name="input-active" id="input-active">
+</div>
+{{!-- Create a table --}}
 
-    <label for="input-itemName">Item Name: </label>
-    <input type="text" name="input-itemName" id="input-itemName">
+<div class="container">
+    <p class="lead">To add a new person, please enter their information below nad click `Submit`!</p>
+    <form id="add-item-form" method="POST" action="/add-item-form">
+        <label for="input-active">Active: </label>
+        <input type="number" name="input-active" id="input-active">
 
-    <label for="input-itemAmount">Amount: </label>
-    <input type="number" name="input-itemAmount" id="input-itemAmount">
+        <label for="input-itemName">Item Name: </label>
+        <input type="text" name="input-itemName" id="input-itemName">
 
-    <label for="input-suggStore">Suggested Store: </label>
-    <input type="text" name="input-suggStore" id="input-suggStore">
+        <label for="input-itemAmount">Amount: </label>
+        <input type="number" name="input-itemAmount" id="input-itemAmount">
 
-    <label for="input-note">Notes: </label>
-    <input type="text" name="input-note" id="input-note">
+        <label for="input-suggStore">Suggested Store: </label>
+        <input type="text" name="input-suggStore" id="input-suggStore">
 
-    <label for="input-itemOwner">Item Owner: </label>
-    <input type="number" name="input-itemOwner" id="input-itemOwner">
+        <label for="input-note">Notes: </label>
+        <input type="text" name="input-note" id="input-note">
 
-    <input type="submit">
-</form>
+        <label for="input-itemOwner">Item Owner: </label>
+        <input type="number" name="input-itemOwner" id="input-itemOwner">
+
+        <input type="submit">
+    </form>
+</div>
+
+<div class="container">
+    <form class="form-horizontal" id="add-items-form" method="POST" action="/add-items-form">
+
+        <input type="hidden" id="input-active" name="active" value="1">
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Item Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemName" id="input-itemName" placeholder="John">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-itemAmount">Amount: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemAmount" id="input-itemAmount">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-suggStore">Suggested Store: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name='input-suggStore' id='input-suggStore'>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-note">Notes: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-note" id="input-note">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-itemOwner">Item Owner: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemOwner" id="input-itemOwner">
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>

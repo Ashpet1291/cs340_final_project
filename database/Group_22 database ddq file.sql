@@ -151,13 +151,14 @@ INSERT INTO `Items` (`active`, `item_name`, `item_amount`, `suggested_store`, `n
 --
 
 CREATE TABLE `Places` (
-  `place_id` int(11) NOT NULL,
+  `place_id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `name` varchar(70) NOT NULL,
   `address` int(11) NOT NULL,
   `website` text DEFAULT NULL,
   `indoor` tinyint(1) NOT NULL,
   `note` text NOT NULL
+  PRIMARY KEY ('places_id')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -165,11 +166,11 @@ CREATE TABLE `Places` (
 --
 
 INSERT INTO `Places` (`place_id`, `active`, `name`, `address`, `website`, `indoor`, `note`) VALUES
-(1, 1, 'Pike Place Market', 1, 'http://pikeplacemarket.org/', 0, 'was very fun we liked the flowers from the fourth booth and loved the pie we got and the honey'),
-(2, 1, 'Disneyland', 2, 'https://disneyland.disney.go.com/', 0, 'really enjoyed the rides in tommorowland and the food at flo\'s cafe'),
-(3, 1, 'Venice Canals', 3, NULL, 0, 'expensive but definitely worth the price- we had a blast'),
-(4, 1, 'Arcade', 4, NULL, 1, 'this arcade was cheap and everyone had a blast- has bowling-minigolf and many games'),
-(5, 1, 'beach', 5, 'https://www.seasideor.com/', 0, 'love this beach-want to come back and rent a beach house for the weekend');
+(1, 'Pike Place Market', 1, 'http://pikeplacemarket.org/', 0, 'was very fun we liked the flowers from the fourth booth and loved the pie we got and the honey'),
+(1, 'Disneyland', 2, 'https://disneyland.disney.go.com/', 0, 'really enjoyed the rides in tommorowland and the food at flo\'s cafe'),
+(1, 'Venice Canals', 3, NULL, 0, 'expensive but definitely worth the price- we had a blast'),
+(1, 'Arcade', 4, NULL, 1, 'this arcade was cheap and everyone had a blast- has bowling-minigolf and many games'),
+(1, 'beach', 5, 'https://www.seasideor.com/', 0, 'love this beach-want to come back and rent a beach house for the weekend');
 
 --
 -- Indexes for dumped tables

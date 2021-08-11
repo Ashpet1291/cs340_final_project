@@ -1,55 +1,63 @@
-<h1>The server is running!</h1>
-<p>If you see this text, the server is <strong>definitely</strong> working!</p>
-{{!-- Create a table --}}
-<table class="table">
+<div class="container">
+    <h1 class="display-1">Places to see and do...</h1>
+</div>
 
-    {{!-- Header section --}}
+{{!-- Create a table --}}
+
+<div class="container">
+    <table class="table">
+
+        {{!-- Header section --}}
         <thead>
 
-            <tr>
-                {{#each data.[0]}}
+        <tr>
+            {{#each data.[0]}}
                 <th>
                     {{@key}}
                 </th>
-                {{/each}}
-            </tr>                                                                           </thead>
+            {{/each}}
+        </tr>                                                                           </thead>
 
-      {{!-- Body section --}}
-      <tbody>
+        {{!-- Body section --}}
+        <tbody>
 
-         {{#each data}}
-         <tr>
-            <td>{{this.place_id}}</td>
-            <td>{{this.active}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.address}}</td>
-            <td>{{this.website}}</td>
-            <td>{{this.indoor}}</td>
-            <td>{{this.note}}</td>
-         </tr>
-         {{/each}}
-      </tbody>
-</table>
+        {{#each data}}
+            <tr>
+                <td>{{this.place_id}}</td>
+                <td>{{this.active}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.website}}</td>
+                <td>{{this.indoor}}</td>
+                <td>{{this.note}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
 
-<p>To add a new place to remember, please enter the information below and click `Submit`!</p>
-<form id="add-place-form" method="POST" action="/add-place-form">
-    <label for="input-active">Active: </label>
-    <input type="number" name="input-active" id="input-active">
+</div>
 
-    <label for="input-name">Place Name: </label>
-    <input type="text" name="input-name" id="input-name">
+<div class="container">
+    <p class="lead">To add a new place to remember, please enter the information below and click `Submit`!</p>
+    <form id="add-place-form" method="POST" action="/add-place-form">
+        <label for="input-active">Active: </label>
+        <input type="number" name="input-active" id="input-active">
 
-    <label for="input-address">Address: </label>
-    <input type="number" name="input-address" id="input-address">
+        <label for="input-name">Place Name: </label>
+        <input type="text" name="input-name" id="input-name">
 
-    <label for="input-website">Website: </label>
-    <input type="text" name="input-website" id="input-website">
+        <label for="input-address">Address: </label>
+        <input type="number" name="input-address" id="input-address">
 
-    <label for="input-indoor">Indoor: </label>
-    <input type="number" name="input-indoor" id="input-indoor">
+        <label for="input-website">Website: </label>
+        <input type="text" name="input-website" id="input-website">
 
-    <label for="input-note">Note: </label>
-    <input type="text" name="input-note" id="input-note">
+        <label for="input-indoor">Indoor: </label>
+        <input type="number" name="input-indoor" id="input-indoor">
 
-    <input type="submit">
-</form>
+        <label for="input-note">Note: </label>
+        <input type="text" name="input-note" id="input-note">
+
+        <input type="submit">
+    </form>
+</div>

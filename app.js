@@ -154,13 +154,13 @@
     app.post('/add-place-form', function(req, res){
         let data = req.body;
 
-        let website = parseInt(data['input-website']);
+        let website = data['input-website'];
         if (isNaN(website))
             {
                 website = 'NULL'
             }
 
-        query2 = `INSERT INTO Places (active, name, website, indoor, note) VALUES ('${data['input-active']}', '${data['input-name']}', ${data['input-website']}, '${data['input-indoor']}', '${data['input-note']}')`;
+        query2 = `INSERT INTO Places (active, name, website, indoor, note) VALUES ('${data['input-active']}', '${data['input-name']}', ${website}, '${data['input-indoor']}', '${data['input-note']}')`;
         db.pool.query(query2, function(error, rows, fields){
 
         if (error) {

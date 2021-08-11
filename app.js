@@ -151,7 +151,7 @@
     })
 
 
-    app.post('/add-places-form', function(req, res){
+    app.post('/add-place-form', function(req, res){
         let data = req.body;
 
         let website = parseInt(data['input-website']);

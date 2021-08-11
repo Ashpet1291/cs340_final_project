@@ -87,7 +87,7 @@ CREATE TABLE `Family_Members` (
   `birthday` date NOT NULL,
   `primary_number` varchar(12) NOT NULL,
   PRIMARY KEY (`family_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Family_Members`
@@ -97,7 +97,7 @@ LOCK TABLES `Family_Members` WRITE;
 INSERT INTO `Family_Members` VALUES
 (1, 1, 'Johnathon', 'John', 'Wick', '1980-05-21', '303-210-4019'),
 (2, 1, 'Sarah', NULL, 'Wick', '1983-05-21', '503-210-4019'),
-(3, 1, 'Steven', 'Stevie', 'Wick', '0000-00-00', '303-210-4019'),
+(3, 1, 'Steven', 'Stevie', 'Wick', '2001-12-05', '303-210-4019'),
 (4, 1, 'Christopher', 'Chris', 'George', '1979-05-21', '303-210-4019'),
 (5, 0, 'Regina', 'gina', 'George', '1982-05-21', '303-210-4019'),
 (6, 1, 'Olivia', 'liv', 'George', '2003-05-21', '303-210-4019');

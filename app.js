@@ -2,8 +2,8 @@
 
 /*
     SETUP
-*/ 
-    var express = require('express'); 
+*/
+    var express = require('express');
     var app = express();
     app.use(express.json())
     app.use(express.urlencoded({extended: true}))
@@ -17,18 +17,23 @@
     app.engine('.hbs', exphbs({                     // Create an instance of the handlebars engine to process templates
             extname: ".hbs"
     }));
+
     app.set('view engine', '.hbs');
+
     app.use(express.static(__dirname +'/img'));
+
 /*
     ROUTES
 */
 
-    // GET ROUTES
+// GET ROUTES
+    // get route to display home page
     app.get('/', function(req,res)
         {
             res.render('index');
         });
 
+    // get route to display family members page- which displays members of a family and thier associated data
     app.get('/familyMembers', function(req, res)
         {
             let query1 = "SELECT * FROM Family_Members;";   // Define our query
@@ -37,6 +42,7 @@
             })
          });
 
+    // Get route to display the announcements page
     app.get('/announcements', function(req, res)
         {
             let query1 = "SELECT * FROM Announcements;";
@@ -45,6 +51,7 @@
             })
         });
 
+    // Get route to display places page
     app.get('/places', function(req, res)
         {
             let query1 = "SELECT * FROM Places;";
@@ -52,8 +59,10 @@
                 res.render('places', {data: rows});
             })
         });
+    // get route to display items page and info
     app.get('/items', function(req, res)
-        {            let query2 = "SELECT * FROM Items;";
+        {
+            let query2 = "SELECT * FROM Items;";
             db.pool.query(query2, function(error, rows, fields){
                 res.render('items', {data: rows});
             })
@@ -95,6 +104,9 @@
 
     app.delete('/', function (req, res) {
           res.send('Got a DELETE request at /user')
+          v
+          v
+          v
     })
 
 

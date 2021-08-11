@@ -61,3 +61,60 @@
         <input type="submit">
     </form>
 </div>
+
+
+<div class="container">
+    <p class="lead">To add a new item, please enter their information below and click `Submit`!</p>
+</div>
+
+<div class="container">
+    <form class="form-horizontal" id="add-place-form" method="POST" action="/add-place-form">
+
+        <input type="hidden" id="active" name="active" value="1">
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Item Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemName" id="input-itemName" placeholder="John">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-itemAmount">Amount: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemAmount" id="input-itemAmount">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-suggStore">Suggested Store: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name='input-suggStore' id='input-suggStore'>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-note">Notes: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-note" id="input-note">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="input-itemOwner">Item Owner: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="input-itemOwner" id="input-itemOwner">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>

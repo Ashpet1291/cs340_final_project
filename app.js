@@ -82,7 +82,7 @@
         }
 
         // Create the query and run it on the database
-        query1 = `INSERT INTO Family_Members (family_id, active, first_name, nick_name, last_name, birthday, primary_number) VALUES ('MAX(SELECT family_id FROM Family_Members','${data['input-active']}', '${data['input-first_name']}', '${data['input-nick_name']}', '${data['input-last_name']}', '${data['input-birthday']}', '${data['primary_number']}')`;
+        query1 = `INSERT INTO Family_Members (active, first_name, nick_name, last_name, birthday, primary_number) VALUES ('${data['input-active']}', '${data['input-first_name']}', '${data['input-nick_name']}', '${data['input-last_name']}', '${data['input-birthday']}', '${data['primary_number']}')`;
         db.pool.query(query1, function(error, rows, fields){
 
             // Check to see if there was an error

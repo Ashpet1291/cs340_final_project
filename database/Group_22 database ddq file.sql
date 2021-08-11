@@ -95,6 +95,7 @@ CREATE TABLE `Family_Members` (
 LOCK TABLES `Family_Members` WRITE;
 
 INSERT INTO `Family_Members` VALUES
+(0, 1, 'Oliver', 'Turbo', 'Tree', '1993-1-1', '123-123-1234')
 (1, 1, 'Johnathon', 'John', 'Wick', '1980-05-21', '303-210-4019'),
 (2, 1, 'Sarah', NULL, 'Wick', '1983-05-21', '503-210-4019'),
 (3, 1, 'Steven', 'Stevie', 'Wick', '2001-12-05', '303-210-4019'),

@@ -122,25 +122,26 @@ CREATE TABLE `Family_Members_Announcements` (
 --
 
 CREATE TABLE `Items` (
-  `item_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `active` int(11) NOT NULL,
   `item_name` varchar(70) NOT NULL,
   `item_amount` int(10) NOT NULL,
   `suggested_store` varchar(50) NOT NULL,
   `note` text NOT NULL,
-  `item_owner` int(11) NOT NULL
+  `item_owner` int(11) NOT NULL,
+    PRIMARY KEY ('item_id')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Items`
 --
 
-INSERT INTO `Items` (`item_id`, `active`, `item_name`, `item_amount`, `suggested_store`, `note`, `item_owner`) VALUES
-(1, 1, 'pickles', 1, 'Safeway', 'need for sandwiches', 2),
-(2, 1, 'lightbulbs', 2, 'Winco', '75 watt-garage light is out', 1),
-(3, 1, 'outside table', 1, 'Winco', 'would take new or used if in good condition', 5),
-(4, 1, 'lemons', 6, 'Roth\'s', 'want to make lemonaide later- roths has freshest fruit', 6),
-(5, 1, 'coolers', 2, '', 'need for camping-big or small', 4);
+INSERT INTO `Items` (`active`, `item_name`, `item_amount`, `suggested_store`, `note`, `item_owner`) VALUES
+(1, 'pickles', 1, 'Safeway', 'need for sandwiches', 2)
+(1, 'lightbulbs', 2, 'Winco', '75 watt-garage light is out', 1),
+(1, 'outside table', 1, 'Winco', 'would take new or used if in good condition', 5),
+(1, 'lemons', 6, 'Roth\'s', 'want to make lemonaide later- roths has freshest fruit', 6),
+(1, 'coolers', 2, '', 'need for camping-big or small', 4);
 
 -- --------------------------------------------------------
 

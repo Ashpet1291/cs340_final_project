@@ -2,7 +2,6 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
     <title>FamilySpot</title>
 
     <head>
@@ -21,6 +20,19 @@
         <title>FamilySpot</title>
 
         <script src="/img/deleteAnnouncement.js"></script>
+
+        <script>
+            function deleteAnn(id){
+                $ajax({
+                    url: '/announcements/' + id,
+                    type: 'DELETE',
+                    success: function(result){
+                        window.location.reload(true);
+                    }
+                })
+            };
+
+        </script>
 
 
 

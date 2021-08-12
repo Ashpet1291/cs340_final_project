@@ -36,9 +36,26 @@
     // get route to display family members page- which displays members of a family and thier associated data
     app.get('/familyMembers', function(req, res)
         {
-            let query1 = "SELECT * FROM Family_Members;";   // Define our query
+            let query1;
+
+            if (req.query.last_name == undefined)
+            {
+                query1 = "SELECT * FROM Family_Members;";   // Define our query
+            }
+            else
+            {
+                query1 = `SELECT * FROM Family_Members WHERE last_name LIKE "${req.query.last_name}%"`
+            }
+
+            let query2 = "SELECT * FROM Family_Members;";
             db.pool.query(query1, function(error, rows, fields){
-                res.render('familyMembers', {data: rows});
+
+                let fmembers = rows;
+
+                db.pool.query(query2, (error, rows, fields) => {
+
+                return res.render('familyMembers', {data: fmembers});
+                })
             })
          });
 

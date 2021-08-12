@@ -45,6 +45,8 @@
     // Get route to display the announcements page
     app.get('/announcements', function(req, res)
         {
+            let context = {}
+            context.jsscripts = ["deleteAnnouncements.js"];
             let query1 = "SELECT * FROM Announcements;";
             db.pool.query(query1, function(error, rows, fields){
                 res.render('announcements', {data: rows});
@@ -102,11 +104,18 @@
         })
     })
 
-    app.delete('/', function (req, res) {
-          res.send('Got a DELETE request at /user')
-          v
-          v
-          v
+        app.delete('/announcements/:id', function (req, res) {
+            let sql = "DELETE FROM announcements WHERE announcement_id = ?";
+            let inserts = [req.params.id];
+            sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+                if(error){
+                    res.write(JSON.stringify(error));
+                    res.status(400)
+                    res.end();
+                }else{
+                    res.status(202).end()
+            }
+        })
     })
 
 

@@ -2,32 +2,15 @@
     <h1 class="display-1">Announcements</h1>
 </div>
 
-<script>
-    function deleteAnn(id){
-        let mysql  = require('mysql');
-        let config = require('./database/db-connector');
 
-        let connection = mysql.createConnection(config);
 
-        // DELETE statement
-        let sql = `DELETE FROM announcements WHERE id = ?`;
 
-        // delete a row with id 1
-        connection.query(sql, id, (error, results, fields) => {
-            if (error)
-                return console.error(error.message);
 
-            console.log('Deleted Row(s):', results.affectedRows);
-        });
 
-        connection.end();
-
-    }
-</script>
 
 {{!-- Create a table --}}
 <div class="container">
-<form t
+
     <table class="table" >
 
         {{!-- Header section --}}
@@ -60,7 +43,7 @@
                 <td>
                     <button type="button"
                             class="btn btn-warning"
-                            onclick="deleteAnn({{this.announcement_id}});">Delete
+                            onclick="deleteAnn({{this.announcements_id}})";>Delete
                     </button>
                 </td>
             </tr>
@@ -70,7 +53,7 @@
 
 
 <div class="container">
-    <p class="lead">To add a new Announcement, please enter its information below and click `Submit`!</p>
+    <p class="lead">To add a new Announcement, please enter their information below and click `Submit`!</p>
 </div>
 
 <div class="container">

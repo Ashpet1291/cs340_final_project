@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ashpet1291/cs340_final_project#readme",
   "dependencies": {
+    "ajax": "^0.0.4",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "forever": "^4.0.1",

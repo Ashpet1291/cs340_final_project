@@ -2,7 +2,28 @@
     <h1 class="display-1">Announcements</h1>
 </div>
 
+<script>
+    function deleteAnn(id){
+        let mysql  = require('mysql');
+        let config = require('./database/db-connector');
 
+        let connection = mysql.createConnection(config);
+
+        // DELETE statement
+        let sql = `DELETE FROM announcements WHERE id = ?`;
+
+        // delete a row with id 1
+        connection.query(sql, id, (error, results, fields) => {
+            if (error)
+                return console.error(error.message);
+
+            console.log('Deleted Row(s):', results.affectedRows);
+        });
+
+        connection.end();
+
+    }
+</script>
 
 {{!-- Create a table --}}
 <div class="container">

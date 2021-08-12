@@ -107,7 +107,7 @@
         app.delete('/announcements/:id', function (req, res) {
             let sql = "DELETE FROM announcements WHERE announcement_id = ?";
             let inserts = [req.params.id];
-            sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            sql = db.pool.query(sql, inserts, function(error, results, fields){
                 if(error){
                     res.write(JSON.stringify(error));
                     res.status(400)

@@ -2,7 +2,6 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
     <title>FamilySpot</title>
 
     <head>
@@ -20,7 +19,20 @@
         <meta charset="UTF-8">
         <title>FamilySpot</title>
 
-        <script src="deleteAnnouncement.js"></script>
+        <script src="/img/deleteAnnouncement.js"></script>
+
+        <script>
+            function deleteAnn(id){
+                $ajax({
+                    url: '/announcements/' + id,
+                    type: 'DELETE',
+                    success: function(result){
+                        window.location.reload(true);
+                    }
+                })
+            };
+
+        </script>
 
 
 

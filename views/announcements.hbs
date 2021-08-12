@@ -5,7 +5,7 @@
 
 <script>
     function deleteAnn(id){
-        $ajax({
+        $.ajax({
             url: '/announcements/' + id,
             type: 'DELETE',
             success: function(result){
